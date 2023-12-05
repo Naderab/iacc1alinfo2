@@ -7,13 +7,17 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ResidencesComponent } from './pages/residences/residences.component';
 import { FormsModule } from '@angular/forms';
 import { UsersComponent } from './pages/users/users.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ApartmentsComponent } from './pages/apartments/apartments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     ResidencesComponent,
-    UsersComponent
+    UsersComponent,
+    NotFoundComponent,
+    ApartmentsComponent
   ],
   imports: [
     BrowserModule,
