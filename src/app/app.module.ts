@@ -5,10 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ResidencesComponent } from './pages/residences/residences.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './pages/users/users.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ApartmentsComponent } from './pages/apartments/apartments.component';
+import { FormResidenceComponent } from './pages/form-residence/form-residence.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,14 @@ import { ApartmentsComponent } from './pages/apartments/apartments.component';
     ResidencesComponent,
     UsersComponent,
     NotFoundComponent,
-    ApartmentsComponent
+    ApartmentsComponent,
+    FormResidenceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

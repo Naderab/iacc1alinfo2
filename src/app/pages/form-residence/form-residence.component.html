@@ -1,0 +1,56 @@
+<!-- <input type="text" [formControl]="name"><br>
+{{name.value}}<br>
+{{name | json}} -->
+<div class="container">
+    <div class="row">
+        <form [formGroup]="formResidence" (ngSubmit)="add()">
+        <div class="mb-3">
+            <div class="label">
+                Name:
+            </div>
+            <input type="text" class="form-control" formControlName="name">
+            {{formResidence.get("name")!.invalid}}
+            {{formResidence.get("name")!.touched}}
+            {{formResidence.get("name")!.dirty}}
+            {{formResidence.get("name")!.errors | json}}
+
+            <div class="alert alert-danger" *ngIf="name!.invalid && name!.touched">
+            <div *ngIf="name!.errors!['required']">Name is required ! </div>
+            <div *ngIf="name!.errors!['pattern']">Name invalid ! </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="label">
+                Adresse:
+            </div>
+            <input type="text" class="form-control" formControlName="adresse">
+                    <div class="alert alert-danger" *ngIf="adresse!.invalid && (adresse!.touched || adresse!.dirty)">
+            <div *ngIf="adresse!.errors!['required']">Adresse is required ! </div>
+        <div *ngIf="adresse!.errors!['minlength']">Adresse must have at least 10 characters ! </div>
+        </div>
+        </div>
+        <div class="mb-3">
+            <div class="label">
+                Picture:
+            </div>
+            <input type="text" class="form-control" formControlName="picture">
+                    <div class="alert alert-danger" *ngIf="picture!.invalid && picture!.touched">
+            <div>Picture is required ! </div>
+            </div>
+        </div>
+        <div class="mb-3">
+                <input type="submit" class="btn btn-primary" value="Add residence" [disabled]="formResidence.invalid">
+        </div>
+        </form>
+    </div>
+</div>
+<!--<form [formGroup]="formResidence" (ngSubmit)="add()">
+    Name : <input type="text" formControlName="name"><br>
+    Adresse : <div formGroupName="adresse"><br>
+    City :<input type="text" formControlName="city">
+    Code : <input type="text" formControlName="code">
+    </div><br>
+    
+    Picture : <input type="text" formControlName="picture">
+    <input type="submit" value="Add residence" >
+</form>-->
