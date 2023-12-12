@@ -1,0 +1,111 @@
+<div class="container">
+    <div class="row">
+        <form [formGroup]="formApartment" (ngSubmit)="add()">
+            <div class="mb-3">
+                <div class="label">
+                    appartNum:
+                </div>
+                <input type="text" class="form-control" formControlName="appartNum">
+                <div class="alert alert-danger" *ngIf="appartNum!.invalid && appartNum!.touched">
+                    <div *ngIf="appartNum!.errors!['required']">Apartment Number is required ! </div>
+                    <div *ngIf="appartNum!.errors!['pattern']">Apartment Number invalid ! </div>
+                </div>
+                Valid : {{appartNum!.valid}} <br>
+                invalid : {{appartNum!.invalid}} <br>
+                Touched : {{appartNum!.touched}} <br>
+                untouched : {{appartNum!.untouched}} <br>
+                dirty : {{appartNum!.dirty}} <br>
+                pristine : {{appartNum!.pristine}} <br>
+                errors : {{appartNum!.errors | json}} <br>
+            </div>
+            <div class="mb-3">
+                <div class="label">
+                    floorNum:
+                </div>
+                <input type="text" class="form-control" formControlName="floorNum">
+                <div class="alert alert-danger" *ngIf="floorNum!.invalid && (floorNum!.touched || floorNum!.dirty)">
+                    <div *ngIf="floorNum!.errors!['required']">Floor Number is required ! </div>
+                    <div *ngIf="floorNum!.errors!['pattern']">Floor Number invalid ! </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="label">
+                    surface:
+                </div>
+                <input 
+                type="text" 
+                class="form-control" 
+                formControlName="surface">
+                <div class="alert alert-danger" *ngIf="surface!.invalid && (surface!.touched || surface!.dirty)">
+                    <div *ngIf="surface!.errors!['required']">Surface is required ! </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="label">
+                    Terasse:
+                </div>
+                <input 
+                    type="radio"  
+                    formControlName="terrace" 
+                    value="yes"> 
+                    YES
+                <input 
+                    type="radio"  
+                    formControlName="terrace" 
+                    value="no"> 
+                    NO
+                <div class="alert alert-danger" 
+                *ngIf="terrace!.invalid && (terrace!.touched || terrace!.dirty)">
+                    <div *ngIf="terrace!.errors!['required']">Terasse is required ! </div>
+                </div>
+            </div>
+            <div class="mb-3" *ngIf="terrace!.value === 'yes'">
+                <div class="label">
+                    surfaceTerrace:
+                </div>
+                <input type="text" class="form-control" formControlName="surfaceTerrace" >
+                <div class="alert alert-danger" *ngIf="surfaceTerrace!.invalid && (surfaceTerrace!.touched || surfaceTerrace!.dirty)">
+                    <div *ngIf="surfaceTerrace!.errors!['required']">Surface Terasse is required ! </div>
+                </div>
+            </div>
+                        
+            <div class="mb-3">
+                <div class="label">
+                    category:
+                </div>
+                <input 
+                    type="radio"  
+                    formControlName="category" 
+                    value="1"> 
+                    S + 1 <br> 
+                <input
+                    type="radio"  
+                    formControlName="category" 
+                    value="2"> 
+                    S + 2 <br>
+                <input
+                    type="radio"  
+                    formControlName="category" 
+                    value="3"> 
+                    S + 3
+                <div class="alert alert-danger"
+                    *ngIf="category!.invalid && (category!.touched || category!.dirty)">
+                    <div *ngIf="category!.errors!['required']">Category is required ! </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="label">
+                    description:
+                </div>
+                <input type="text" class="form-control" formControlName="description">
+                <div class="alert alert-danger" *ngIf="description!.invalid && (description!.touched || description!.dirty)">
+                    <div *ngIf="description!.errors!['required']">description is required ! </div>
+                    <div *ngIf="description!.errors!['minlength']">description must have at least 10 characters ! </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary" value="Add residence" [disabled]="formApartment.invalid">
+            </div>
+        </form>
+    </div>
+</div>

@@ -6,6 +6,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ApartmentsComponent } from './pages/apartments/apartments.component';
 import { FormResidenceComponent } from './pages/form-residence/form-residence.component';
+import { FormApartementComponent } from './pages/form-apartement/form-apartement.component';
 
 const routes: Routes = [
   { path: 'residences', component: ResidencesComponent },
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'residences', pathMatch: 'full' },
   { path: 'residence/:id/:title', component: ApartmentsComponent },
   { path: 'addResidence', component: FormResidenceComponent },
+  { path: 'addApartment', component: FormApartementComponent },
+
   { path: '**', component: NotFoundComponent },
 ];
 
