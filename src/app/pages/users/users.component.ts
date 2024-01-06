@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { User } from '../../core/models/user';
 
 @Component({
@@ -6,7 +6,12 @@ import { User } from '../../core/models/user';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit, OnDestroy {
+  
+  prop: string = 'test';
+  changeProp() {
+    this.prop = "changed";
+  }
   listUsers: User[] = [
     {
       id: 1,
@@ -42,5 +47,15 @@ export class UsersComponent {
       let index = this.listUsers.indexOf(user);
       this.listUsers.splice(index, 1);
     }
+  }
+
+  constructor() {
+    console.log('constructor')
+  }
+  ngOnInit(): void {
+      console.log('init');
+  }
+  ngOnDestroy(): void {
+    console.log('destroy');
   }
 }

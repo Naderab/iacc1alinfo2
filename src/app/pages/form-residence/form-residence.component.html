@@ -9,11 +9,10 @@
                 Name:
             </div>
             <input type="text" class="form-control" formControlName="name">
-            {{formResidence.get("name")!.invalid}}
+            <!--{{formResidence.get("name")!.invalid}}
             {{formResidence.get("name")!.touched}}
             {{formResidence.get("name")!.dirty}}
-            {{formResidence.get("name")!.errors | json}}
-
+            {{formResidence.get("name")!.errors | json}}-->
             <div class="alert alert-danger" *ngIf="name!.invalid && name!.touched">
             <div *ngIf="name!.errors!['required']">Name is required ! </div>
             <div *ngIf="name!.errors!['pattern']">Name invalid ! </div>

@@ -11,7 +11,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ApartmentsComponent } from './pages/apartments/apartments.component';
 import { FormResidenceComponent } from './pages/form-residence/form-residence.component';
 import { FormApartementComponent } from './pages/form-apartement/form-apartement.component';
-
+import { UserComponent } from './pages/user/user.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,13 +22,15 @@ import { FormApartementComponent } from './pages/form-apartement/form-apartement
     NotFoundComponent,
     ApartmentsComponent,
     FormResidenceComponent,
-    FormApartementComponent
+    FormApartementComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

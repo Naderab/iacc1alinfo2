@@ -1,13 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4" *ngFor="let u of listUsers">
-        <div class="card" style="width: 18rem;margin-bottom:10px;" >
-            <img [src]="u.picture" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{u.username}}</h5>
-                <button class="btn btn-danger" (click)="deleteUser(u)" [disabled]="u.accountCategory === 'Admin'">Delete account</button>
-            </div>
-        </div>
+            <app-user [user]="u" [propChild]="prop" (devent)="deleteUser($event)"></app-user>
         </div>
     </div>
+    <button (click)="changeProp()">Changer prop</button>
 </div>
+

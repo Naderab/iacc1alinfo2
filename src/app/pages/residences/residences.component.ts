@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Residence } from '../../core/models/residence';
 import { Apartment } from '../../core/models/apartment';
+import { ResidenceService } from '../../core/services/residence.service';
 
 @Component({
   selector: 'app-residences',
@@ -8,6 +9,9 @@ import { Apartment } from '../../core/models/apartment';
   styleUrls: ['./residences.component.css'],
 })
 export class ResidencesComponent {
+
+  constructor(private rs: ResidenceService) { }//Dependency Injection
+  aFromComponent = this.rs.a;
   listApartmentsFiltred: Apartment[] = [];
   searchText = '';
   hide = true;
