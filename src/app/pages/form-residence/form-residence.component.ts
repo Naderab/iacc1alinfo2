@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Residence } from 'src/app/core/models/residence';
+import { ResidenceService } from 'src/app/core/services/residence.service';
 
 @Component({
   selector: 'app-form-residence',
@@ -7,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-residence.component.css'],
 })
 export class FormResidenceComponent {
+  constructor(private rs:ResidenceService){}
   formResidence = new FormGroup({
     // name: new FormControl({ value:'ResidenceX',disabled:true}),
     name: new FormControl('', [
@@ -37,5 +40,10 @@ export class FormResidenceComponent {
   add() {
     console.log(this.formResidence.value);
     console.log(this.formResidence.getRawValue());
+    this.rs.addResidence(this.formResidence.value as Residence)
+      .subscribe({
+      next: () => console.log('residence added'),
+      error:(err)=>console.log(err)      
+    });
   }
 }

@@ -10,13 +10,17 @@ import { ResidenceService } from '../../core/services/residence.service';
 })
 export class ResidencesComponent {
 
-  constructor(private rs: ResidenceService) { }//Dependency Injection
+  constructor(private rs: ResidenceService) {
+    this.rs.getResidences().subscribe({
+      next: (data) => this.listResidences = data as Residence[],
+    });
+   }//Dependency Injection
   aFromComponent = this.rs.a;
   listApartmentsFiltred: Apartment[] = [];
   searchText = '';
   hide = true;
   listResidences: Residence[] = [
-    {
+   /* {
       id: 1,
       name: 'El fel',
       address: 'Borj Cedria',
@@ -39,7 +43,7 @@ export class ResidencesComponent {
       name: 'El Anber',
       address: 'Manzah 5',
       image: '../../assets/images/R4.jpg',
-    },
+    },*/
   ];
   listApartments: Apartment[] = [
     {

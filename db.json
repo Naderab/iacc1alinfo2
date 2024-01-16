@@ -1,4 +1,11 @@
 {
-  "residence":[],
-  "apartment":[]
+  "residence": [
+    {
+      "name": "Test",
+      "adresse": "test test test ",
+      "picture": "../../assets/images/R4.jpg",
+      "id": 1
+    }
+  ],
+  "apartment": []
 }
